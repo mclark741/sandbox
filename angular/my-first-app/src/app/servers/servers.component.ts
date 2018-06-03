@@ -10,7 +10,12 @@ import {
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
-  serverCreationStatus: string;
+  serverName: string = "Test Server";
+  serverCreated: boolean = false;
+  servers: string[] = ["TestServer", "TestServer 2"];
+  display: boolean = false;
+  displayClicks: number[] = [];
+
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
@@ -19,6 +24,15 @@ export class ServersComponent implements OnInit {
 
   ngOnInit() {}
   onCreateServer() {
-    this.serverCreationStatus = "New Server Created";
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
+  }
+
+  onUpdateServerName(e: Event) {
+    this.serverName = ( < HTMLInputElement > e.target).value;
+  }
+  onDisplayDetails() {
+    this.display = !this.display;
+    this.displayClicks.push(this.displayClicks.length + 1);
   }
 }

@@ -1,7 +1,20 @@
-<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">
-  Add Server</button>
-<p>{{serverCreationStatus}}</p>
+<label>Server Name</label>
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+<input type="button" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()" value="Add Server" />
+<p *ngIf="serverCreated">Server was created, server name is {{serverName}}</p>
+
+<app-server *ngFor="let server of servers"></app-server>
 
 
-<app-server></app-server>
-<app-server></app-server>
+
+<input type="button" class="btn btn-primary" value="Display Details" (click)="onDisplayDetails()" />
+
+<p [ngClass]="{hidden:!display}"> Secret password = tuna</p>
+
+<ul>
+  <li *ngFor="let click of displayClicks" 
+  [ngStyle]="{'background-color' : click > 4 ? 'blue' : 'transparent'}" 
+  [ngClass]="{'white-text' : click > 4}">
+    {{click}}
+  </li>
+</ul>
