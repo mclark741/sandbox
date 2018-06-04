@@ -1,2 +1,5 @@
 
 .DS_Store
+core/ContosoUniversity/.vs/
+core/ContosoUniversity/bin/
+core/ContosoUniversity/obj/
