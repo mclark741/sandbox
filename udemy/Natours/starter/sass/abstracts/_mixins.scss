@@ -2,6 +2,6 @@
     &::after {
         content: "";
         display: table;
-        float: clear;
+        clear: both;
     }
 }
